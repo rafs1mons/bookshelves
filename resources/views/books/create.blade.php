@@ -17,6 +17,15 @@
                 <input type="text" class="form-control" id="author" name="author" required>
             </div>
 
+            <div class="form-group">
+                <label for="status">Status</label>
+                <select class="form-control" id="status" name="status">
+                    <option value="read">Read</option>
+                    <option value="okunacak">Okunacak</option>
+                    <option value="alinacak">Alınacak</option>
+                </select>
+            </div>
+
             <button type="submit" class="btn btn-primary">Add Book</button>
         </form>
     </div>
