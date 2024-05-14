@@ -32,9 +32,11 @@ class BookController extends Controller
         $book = new Book;
         $book->title = $request->title;
         $book->author = $request->author;
+        $book->status = $request->status;
+        $book->user = auth()->id();
         $book->save();
 
-        return redirect('/books');
+        return redirect()->route('books.index');
     }
 
     /**
@@ -58,11 +60,8 @@ class BookController extends Controller
      */
     public function update(Request $request, Book $book)
     {
-        $book->title = $request->title;
-        $book->author = $request->author;
-        $book->save();
-
-        return redirect('/books');
+        $book->update($request->all());
+        return redirect()->route('books.show', $book);
     }
 
     /**
