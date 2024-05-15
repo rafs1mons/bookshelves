@@ -12,7 +12,7 @@ class BookController extends Controller
      */
     public function index()
     {
-        $books = Book::all();
+        $books = Book::where('user', auth()->id())->get();
         return view('books.index', compact('books'));
     }
 
@@ -71,5 +71,11 @@ class BookController extends Controller
     {
         $book->delete();
         return redirect('/books');
+    }
+
+    public function updateStatus(Book $book)
+    {
+        $book->update(['status' => 'read']);
+        return back();
     }
 }

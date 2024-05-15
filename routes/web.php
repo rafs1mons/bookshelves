@@ -31,3 +31,5 @@ Route::post('/logout', function () {
     Auth::logout();
     return redirect('/');
 })->name('logout');
+
+Route::put('/books/{book}/updateStatus', [BookController::class, 'updateStatus'])->name('books.updateStatus');
