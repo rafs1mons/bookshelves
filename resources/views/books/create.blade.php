@@ -21,8 +21,8 @@
                 <label for="status">Status</label>
                 <select class="form-control" id="status" name="status">
                     <option value="read">Read</option>
-                    <option value="okunacak">Okunacak</option>
-                    <option value="alinacak">Alınacak</option>
+                    <option value="unread">Unread</option>
+                    <option value="none">Not having</option>
                 </select>
             </div>
 
