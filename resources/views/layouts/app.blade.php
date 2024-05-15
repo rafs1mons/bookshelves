@@ -20,7 +20,12 @@
     <div id="app">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="{{ url('/') }}">Bookshelves</a>
-
+            @if (Auth::check())
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <button type="submit">Logout</button>
+                </form>
+            @endif
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav ml-auto">
                     @if (Auth::check())
