@@ -8,19 +8,26 @@
 
         <div class="row">
             @foreach ($books as $book)
-                <div class="col-md-4">
+                <div class="col-md-12">
                     <div class="card mb-4">
                         <div class="card-body">
-                            <h5 class="card-title">{{ $book->title }}</h5>
-                            <p class="card-text">{{ $book->author }}</p>
-                            <a href="{{ route('books.show', $book) }}" class="btn btn-primary">View Details</a>
-                            @if ($book->status == 'unread')
-                                <form method="POST" action="{{ route('books.updateStatus', $book) }}">
-                                    @csrf
-                                    @method('PUT')
-                                    <button type="submit" class="btn btn-success">Mark as Read</button>
-                                </form>
-                            @endif
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <h5 class="card-title">{{ $book->title }}</h5>
+                                    <p class="card-text">{{ $book->author }}</p>
+                                    <p class="card-text">{{ ucfirst($book->status) }}</p>
+                                </div>
+                                <div class="col-md-4 d-flex justify-content-end align-items-start">
+                                    <a href="{{ route('books.show', $book) }}" class="btn btn-primary mr-2">View Details</a>
+                                    @if ($book->status == 'unread')
+                                        <form method="POST" action="{{ route('books.updateStatus', $book) }}" class="d-inline-block mr-2">
+                                            @csrf
+                                            @method('PUT')
+                                            <button type="submit" class="btn btn-success">Mark as Read</button>
+                                        </form>
+                                    @endif
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
