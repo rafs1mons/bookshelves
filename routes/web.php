@@ -25,5 +25,5 @@ require __DIR__.'/auth.php';
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
+Route::get('/profile/show', [ProfileController::class, 'show'])->middleware('auth')->name('profile.show');
 
