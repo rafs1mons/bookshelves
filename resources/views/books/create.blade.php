@@ -22,7 +22,7 @@
                 <select class="form-control" id="status" name="status">
                     <option value="read">Read</option>
                     <option value="unread">Unread</option>
-                    <option value="none">Not having</option>
+                    <option value="want">Not having</option>
                 </select>
             </div>
 

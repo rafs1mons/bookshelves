@@ -20,10 +20,16 @@
                                 <div class="col-md-4 d-flex justify-content-end align-items-start">
                                     <a href="{{ route('books.show', $book) }}" class="btn btn-primary mr-2">View Details</a>
                                     @if ($book->status == 'unread')
-                                        <form method="POST" action="{{ route('books.updateStatus', $book) }}" class="d-inline-block mr-2">
+                                        <form method="POST" action="{{ route('books.updateStatus', ['book' => $book, 'status' => $book->status]) }}" class="d-inline-block mr-2">
                                             @csrf
                                             @method('PUT')
                                             <button type="submit" class="btn btn-success">Mark as Read</button>
+                                        </form>
+                                    @elseif($book->status == 'want')
+                                        <form method="POST" action="{{ route('books.updateStatus', ['book' => $book, 'status' => $book->status]) }}" class="d-inline-block mr-2">
+                                            @csrf
+                                            @method('PUT')
+                                            <button type="submit" class="btn btn-success">Mark as Unread</button>
                                         </form>
                                     @endif
                                 </div>

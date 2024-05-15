@@ -32,4 +32,4 @@ Route::post('/logout', function () {
     return redirect('/');
 })->name('logout');
 
-Route::put('/books/{book}/updateStatus', [BookController::class, 'updateStatus'])->name('books.updateStatus');
+Route::put('/books/{book}/{status}/updateStatus', [BookController::class, 'updateStatus'])->name('books.updateStatus');

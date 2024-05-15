@@ -73,9 +73,19 @@ class BookController extends Controller
         return redirect('/books');
     }
 
-    public function updateStatus(Book $book)
+    /**
+     * Kitaplar listesindeki kitabın durumunu günceller.
+     * @param Book $book
+     * @param $status
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function updateStatus(Book $book, $status)
     {
-        $book->update(['status' => 'read']);
+        if($status == 'want'){
+            $book->update(['status' => 'unread']);
+        }elseif ($status == 'unread') {
+            $book->update(['status' => 'read']);
+        }
         return back();
     }
 }
